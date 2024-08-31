@@ -9,6 +9,18 @@ fun main() {
 	runBlocking {
 		markdown {
 			Text("Hello, World!")
+			List {
+				Text("List1")
+				Text("List2")
+
+				 List {
+					 Text("Sub List1")
+					 Text("Sub List2")
+				 }
+				List {
+					Text("List1-1")
+				}
+			}
 		}
 	}
 
@@ -35,7 +47,7 @@ private suspend fun markdown(content: @Composable () -> Unit) {
 	}
 
 	root.children.forEach { child ->
-		println(child.text)
+		println(child.toString())
 	}
 
 	composition?.dispose()

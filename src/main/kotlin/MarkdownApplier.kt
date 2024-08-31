@@ -13,6 +13,7 @@ class MarkdownApplier(
 	override var current: MarkdownNode = root
 
 	override fun insertTopDown(index: Int, instance: MarkdownNode) {
+		if (current.list) instance.index = index
 		current.children.add(instance)
 	}
 
